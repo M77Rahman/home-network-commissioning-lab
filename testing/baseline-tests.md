@@ -1,42 +1,50 @@
-# Baseline Tests
+# Baseline Network Tests
 
 ## Purpose
-Record standard baseline checks before troubleshooting.
+
+Record standard baseline checks before troubleshooting. These checks confirm the test device network configuration, internet connectivity, DNS resolution, and route visibility.
 
 ## Test Environment
-- Date/Time: [Placeholder]
-- Tester: [Placeholder]
-- Test Device: [Placeholder]
-- Connection Type: [Placeholder]
 
-## Baseline Test Plan
-1. Verify local IP configuration.
-2. Ping default gateway.
-3. Ping public DNS (e.g., 8.8.8.8).
-4. Resolve and ping a public domain.
-5. Run traceroute to a public domain.
-6. Verify DNS lookup timing/consistency.
+- Date/Time: 20 April 2026
+- Tester: Muhammad Emdadur Rahman
+- Test device: MacBook Air
+- Connection type: Wi-Fi
+- Active interface: `en0`
+- Private IP address: `10.104.70.xxx`
+- Default gateway: `10.104.64.x`
+- DNS servers: `185.228.168.85`, `185.228.169.85`
+- Network type: Guest Wi-Fi network
 
 ## Commands Used
+
 ```bash
-# Linux/macOS examples
-ip a
-ip route
-ping -c 4 <default-gateway>
+ifconfig
+netstat -nr | grep default
+scutil --dns
+ipconfig getifaddr en0
+ping -c 4 10.104.64.1
 ping -c 4 8.8.8.8
-ping -c 4 bbc.co.uk
-traceroute bbc.co.uk
-nslookup bbc.co.uk
+ping -c 4 google.com
+nslookup google.com
+traceroute google.com
+Baseline Test Summary
+Test	Command	Result	Interpretation
+IP configuration	ipconfig getifaddr en0	10.104.70.xxx	Test device had a valid private IP address
+Default gateway check	netstat -nr | grep default	10.104.64.x via en0	Device had a default route through the Wi-Fi interface
+DNS server check	scutil --dns	DNS servers detected	Device had reachable DNS servers configured
+Default gateway ping	ping -c 4 10.104.64.1	100% packet loss / filtered	ICMP to gateway appeared blocked by network filtering
+External IP ping	ping -c 4 8.8.8.8	0% packet loss	Internet connectivity to an external IP worked
+External domain ping	ping -c 4 google.com	0% packet loss	External domain connectivity worked
+DNS lookup	nslookup google.com	Successful	DNS resolution worked
+Traceroute	traceroute google.com	First hop responded, later hops timed out	Traceroute replies appeared filtered after the first hop
+Conclusion
 
-# Windows examples
-ipconfig /all
-ping <default-gateway>
-ping 8.8.8.8
-ping bbc.co.uk
-tracert bbc.co.uk
-nslookup bbc.co.uk
-```
+The baseline tests showed that the device had working internet access and DNS resolution.
 
-## Baseline Status
-- [ ] Completed successfully
-- [ ] Issues detected (see troubleshooting folder)
+The failed gateway ping and partial traceroute did not indicate a full connectivity fault, because external IP and domain tests were successful. The results suggest that the guest Wi-Fi network filters some diagnostic traffic, such as ICMP or traceroute responses.
+
+Baseline Status
+ Completed successfully
+ Filtering observed on gateway ping and traceroute
+ Full outage detected
