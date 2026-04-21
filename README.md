@@ -47,7 +47,6 @@ It demonstrates:
 
 ## Repository Structure
 
-```text
 home-network-commissioning-lab/
 │
 ├── README.md
@@ -58,7 +57,11 @@ home-network-commissioning-lab/
 ├── troubleshooting/
 │   └── troubleshooting-scenario.md
 ├── customer-docs/
+│   └── customer-handover-note.md
+└── scripts/
+    └── basic_connectivity_check.py
 
+    
 Network Topology
 Component	Role	Notes
 Home router	Default gateway and internet access	Private details masked
@@ -165,6 +168,3 @@ Creating a lightweight commissioning sign-off checklist
 Extending testing to include Wi-Fi quality metrics
 Adding packet capture references for learning purposes
 Expanding the troubleshooting section with more fault scenarios
-│   └── customer-handover-note.md
-└── scripts/
-    └── basic_connectivity_check.py
