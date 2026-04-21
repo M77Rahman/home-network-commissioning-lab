@@ -1,26 +1,26 @@
 # Resolution Report
 
 ## Resolution summary
-No break/fix repair was required. Test results were reviewed and interpreted as expected behaviour for a filtered guest Wi-Fi network.
+No break/fix repair was required. The observed behaviour matches filtered diagnostic traffic on a guest Wi-Fi network.
 
 ## Actions taken
-1. Compared gateway, public IP, and public domain ping results.
-2. Verified DNS resolution with `nslookup google.com`.
-3. Reviewed traceroute pattern (first hop response, later-hop `* * *`).
-4. Correlated findings with guest-network diagnostic traffic filtering.
-5. Documented outcome and guidance for future troubleshooting.
+1. Validated local-gateway, public-IP, and public-domain ping outcomes.
+2. Confirmed DNS resolution with `nslookup google.com`.
+3. Reviewed traceroute response pattern.
+4. Correlated all results with guest-network filtering policy behaviour.
+5. Documented guidance for future diagnostics on filtered SSIDs.
 
 ## Retest results
-- Ping to `10.104.64.1`: still filtered (100% loss, "Communication prohibited by filter").
-- Ping to `8.8.8.8`: successful (0% packet loss).
-- Ping to `google.com`: successful (0% packet loss).
+- `ping 10.104.64.1`: **100% packet loss**, with **"Communication prohibited by filter"**.
+- `ping 8.8.8.8`: **0% packet loss**.
+- `ping google.com`: **0% packet loss**.
 - `nslookup google.com`: successful using DNS server `185.228.168.85`.
-- `traceroute google.com`: first hop visible, later hops masked as `* * *`.
+- `traceroute google.com`: first hop visible, later hops displayed `* * *`.
 
 ## Recommendation
-- Keep current guest-network filtering if it matches security policy.
-- Update operational runbooks to note that ICMP/traceroute filtering can affect diagnostics even when user connectivity works.
-- When troubleshooting guest SSIDs, use multiple checks and avoid conclusions based on one tool.
+- Keep filtering policy in place if it is required by guest-network security design.
+- Add a troubleshooting note in runbooks: ICMP/traceroute filtering can affect diagnostic tests even when internet connectivity is working.
+- When validating guest Wi-Fi, combine diagnostic results with practical service checks.
 
 ## Customer communication note
-The guest network internet service is operational. Some diagnostic tools are intentionally restricted by network policy, which is why certain ping/traceroute results appear blocked.
+Internet and DNS services are operational on the guest Wi-Fi network. Some diagnostic tools show blocked or partial results because filtering controls are applied by design.

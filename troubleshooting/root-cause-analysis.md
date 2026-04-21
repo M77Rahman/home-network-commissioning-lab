@@ -1,32 +1,33 @@
 # Root Cause Analysis
 
 ## Problem statement
-Diagnostic checks on the guest Wi-Fi network gave partial/blocked ICMP and traceroute responses, which could be misread as a network fault.
+Gateway ICMP and traceroute outputs on the guest Wi-Fi network suggested possible packet loss, while internet and DNS tests were successful.
 
 ## Tests performed
-1. Ping default gateway `10.104.64.1`.
-2. Ping public IP `8.8.8.8`.
-3. Ping public domain `google.com`.
-4. Run `nslookup google.com`.
-5. Run `traceroute google.com`.
+1. `ping 10.104.64.1`
+2. `ping 8.8.8.8`
+3. `ping google.com`
+4. `nslookup google.com`
+5. `traceroute google.com`
 
 ## Evidence summary
-- Gateway ping: **100% packet loss** with **"Communication prohibited by filter"**.
-- Public IP ping (`8.8.8.8`): **0% packet loss**.
-- Domain ping (`google.com`): **0% packet loss**.
-- DNS lookup: successful via resolver `185.228.168.85`.
-- Traceroute: first hop visible; later hops displayed `* * *`.
+- `ping 10.104.64.1`: **100% packet loss**.
+- Ping diagnostic message: **"Communication prohibited by filter"**.
+- `ping 8.8.8.8`: **0% packet loss**.
+- `ping google.com`: **0% packet loss**.
+- `nslookup google.com`: successful via `185.228.168.85`.
+- `traceroute google.com`: first hop responded; subsequent hops showed `* * *`.
 
-## Analysis and diagnosis
-- End-to-end user connectivity was present (public IP and domain ping successful).
-- DNS was functioning correctly (name resolution successful).
-- The gateway ICMP response and traceroute visibility were filtered/limited by policy.
-- This pattern is consistent with guest-network security controls that restrict diagnostic traffic.
+## Diagnosis
+The pattern is consistent with policy-based filtering on the guest Wi-Fi network:
+- ICMP diagnostic traffic may be blocked or rate-limited for specific paths.
+- Traceroute visibility may be reduced because intermediate devices can drop or deprioritise probe responses.
+- End-to-end internet connectivity can still work even when diagnostic replies are filtered.
 
 ## Root cause
-Guest Wi-Fi filtering policy blocked or limited diagnostic ICMP/traceroute traffic, leading to failed/partial diagnostic results even though internet service remained available.
+Guest Wi-Fi security controls filtered diagnostic ICMP/traceroute traffic, resulting in misleading diagnostic outputs despite working internet and DNS services.
 
 ## Lessons learned
-- Do not treat gateway ping failure alone as proof of an outage.
-- Validate service using multiple test types (IP reachability, DNS, and application-level checks where possible).
-- Document policy-driven filtering clearly to avoid false incident escalation.
+- Use multiple tests before concluding a network fault.
+- A failed gateway ping alone is not enough to declare service failure.
+- Record filtering behaviour clearly to prevent unnecessary escalation.
