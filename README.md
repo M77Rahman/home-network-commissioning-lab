@@ -45,22 +45,6 @@ It demonstrates:
 - Customer-facing communication
 - Awareness of security and privacy when documenting network information
 
-## Repository Structure
-
-home-network-commissioning-lab/
-│
-├── README.md
-├── network-map/
-│   └── topology.md
-├── testing/
-│   └── connectivity-tests.md
-├── troubleshooting/
-│   └── troubleshooting-scenario.md
-├── customer-docs/
-│   └── customer-handover-note.md
-└── scripts/
-    └── basic_connectivity_check.py
-
     
 Network Topology
 Component	Role	Notes
@@ -168,3 +152,20 @@ Creating a lightweight commissioning sign-off checklist
 Extending testing to include Wi-Fi quality metrics
 Adding packet capture references for learning purposes
 Expanding the troubleshooting section with more fault scenarios
+
+```text
+## Repository Structure
+
+home-network-commissioning-lab/
+│
+├── README.md
+├── network-map/
+│   └── topology.md
+├── testing/
+│   └── connectivity-tests.md
+├── troubleshooting/
+│   └── troubleshooting-scenario.md
+├── customer-docs/
+│   └── customer-handover-note.md
+└── scripts/
+    └── basic_connectivity_check.py
