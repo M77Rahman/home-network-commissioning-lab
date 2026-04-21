@@ -1,5 +1,6 @@
 # Traceroute Results
 
+## Traceroute to public domain
 ## Traceroute test to public domain
 - Command: `traceroute google.com`
 - Target: `google.com`
@@ -9,6 +10,17 @@
 - Test completion: Stopped manually after repeated non-responses
 
 ```text
+traceroute to google.com (142.250.151.139)
+ 1  10.104.64.2
+ 2  * * *
+ 3  * * *
+ 4  * * *
+```
+
+## Interpretation
+- First-hop response confirmed local path visibility.
+- Later-hop non-response is consistent with filtering or non-responsive intermediate devices.
+- Combined with successful ping and DNS tests, this does not indicate internet outage.
 traceroute to google.com (142.250.151.139), 64 hops max
   1  10.104.64.2  ... ms  ... ms  ... ms
   2  * * *

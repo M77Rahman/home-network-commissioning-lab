@@ -47,6 +47,10 @@ round-trip min/avg/max/stddev = 10.958/11.675/12.540/0.563 ms
 round-trip min/avg/max/stddev = 10.614/11.190/11.927/0.511 ms
 ```
 
+## Interpretation
+- Public internet reachability was successful.
+- Gateway ping on guest Wi-Fi was filtered.
+- These results indicate working connectivity with restricted diagnostics.
 ## Ping interpretation
 - Public IP and domain reachability were successful.
 - Gateway ICMP response was blocked on this guest network segment.
