@@ -24,3 +24,24 @@ No break/fix repair was required. The observed behaviour matches filtered diagno
 
 ## Customer communication note
 Internet and DNS services are operational on the guest Wi-Fi network. Some diagnostic tools show blocked or partial results because filtering controls are applied by design.
+## Resolution Summary
+[Placeholder: short summary of fix implemented]
+
+## Actions Taken
+1. [Placeholder action]
+2. [Placeholder action]
+3. [Placeholder action]
+
+## Validation Tests
+- Test Performed: [Placeholder]
+- Expected Result: [Placeholder]
+- Actual Result: [Placeholder]
+
+## Outcome
+- Service Restored: [Yes/No]
+- Date/Time Restored: [Placeholder]
+- Remaining Risks: [Placeholder]
+
+## Follow-Up Tasks
+- [Placeholder task 1]
+- [Placeholder task 2]

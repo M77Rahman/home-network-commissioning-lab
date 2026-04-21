@@ -31,3 +31,27 @@ Guest Wi-Fi security controls filtered diagnostic ICMP/traceroute traffic, resul
 - Use multiple tests before concluding a network fault.
 - A failed gateway ping alone is not enough to declare service failure.
 - Record filtering behaviour clearly to prevent unnecessary escalation.
+## Problem Statement
+[Placeholder: concise technical problem statement]
+
+## Evidence Collected
+- Test Results Referenced: [Placeholder]
+- Logs/Outputs: [Placeholder]
+- Device/Config Checks: [Placeholder]
+
+## Analysis
+### What Worked
+- [Placeholder]
+
+### What Failed
+- [Placeholder]
+
+### Why It Failed
+[Placeholder: explain the technical reason in simple terms]
+
+## Root Cause
+[Placeholder: single clear root cause statement]
+
+## Preventive Actions
+- [Placeholder action 1]
+- [Placeholder action 2]
