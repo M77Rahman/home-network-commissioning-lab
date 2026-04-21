@@ -1,32 +1,20 @@
 # DNS Tests
 
-## Instructions
-Record DNS verification outputs for consistency and troubleshooting.
+## DNS lookup test
+- Command: `nslookup google.com`
+- DNS server used: `185.228.168.85`
+- Resolution successful: Yes
+- Example resolved IP: `142.251.29.138`
 
-## DNS server check
-- Command: `[Placeholder command]`
-- Date/time: [Placeholder]
-- Output:
 ```text
-[PASTE REAL OUTPUT HERE]
+Server:		185.228.168.85
+Address:	185.228.168.85#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 142.251.29.138
 ```
 
-## Domain resolution check
-- Command: `[Placeholder command]`
-- Date/time: [Placeholder]
-- Output:
-```text
-[PASTE REAL OUTPUT HERE]
-```
-
-## Repeat query comparison
-- Command: `[Placeholder command]`
-- Date/time: [Placeholder]
-- Output:
-```text
-[PASTE REAL OUTPUT HERE]
-```
-
-## Notes
-- Expected behavior: [Placeholder]
-- Unexpected behavior: [Placeholder]
+## DNS interpretation
+- DNS resolution was working during baseline testing.
+- Name resolution success supports that internet service was available.
