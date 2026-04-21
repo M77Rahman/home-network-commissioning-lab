@@ -4,22 +4,22 @@
 Diagnostic traffic filtering on a guest Wi-Fi network
 
 ## Reported issue
-During baseline diagnostics on the guest Wi-Fi segment, the default-gateway ping test failed, which could be interpreted as a connectivity issue.
+Gateway ping on the guest Wi-Fi test segment returned 100% packet loss, which could appear to indicate a connectivity issue.
 
 ## Symptoms observed
-- Ping to default gateway `10.104.64.1` returned **100% packet loss**.
-- Ping output included: **"Communication prohibited by filter"**.
-- Ping to `8.8.8.8` succeeded with **0% packet loss**.
-- Ping to `google.com` succeeded with **0% packet loss**.
-- `nslookup google.com` succeeded using DNS server `185.228.168.85`.
-- `traceroute google.com` reached the first hop, then later hops showed `* * *`.
+- `ping -c 4 10.104.64.1`: 100% packet loss
+- Diagnostic message: `Communication prohibited by filter`
+- `ping -c 4 8.8.8.8`: success, 0% packet loss
+- `ping -c 4 google.com`: success, 0% packet loss
+- `nslookup google.com`: successful via DNS server `185.228.168.85`
+- `traceroute google.com`: first hop responded, later hops showed `* * *`
 
 ## Service impact assessment
 - Internet access remained available.
 - DNS resolution remained available.
-- The issue affected diagnostic visibility, not end-user connectivity.
+- Diagnostic visibility for gateway ping/traceroute was restricted.
 
 ## Scope
-- Network segment: Guest Wi-Fi
-- Primary affected diagnostics: ICMP echo to gateway and multi-hop traceroute visibility
-- Unaffected services: External IP reachability and DNS name resolution
+- Network segment: Guest Wi-Fi network
+- Affected diagnostics: ICMP to gateway and traceroute path visibility
+- Unaffected service: End-user internet and DNS access

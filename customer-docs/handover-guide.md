@@ -1,50 +1,48 @@
 # Handover Guide
 
 ## Purpose
-Provide clear handover notes after testing the guest Wi-Fi diagnostic filtering scenario.
+Provide clear handover notes for the guest Wi-Fi diagnostic filtering scenario.
 
-## Handover summary
-The guest Wi-Fi network is working for normal internet use. Some diagnostic responses (gateway ping/traceroute) are restricted by policy and should be treated as expected behaviour unless user connectivity is also failing.
+## Environment summary
+- Test device: MacBook Air
+- Connection type: Wi-Fi
+- Interface: en0
+- Private IP: 10.104.70.xxx
+- Gateway (masked): 10.104.64.x
+- DNS servers: 185.228.168.85, 185.228.169.85
+- Network type: Guest Wi-Fi network
 
-## What was checked
-- Local gateway reachability test (ping)
-- Public internet reachability test
+## Checks completed
+- Gateway reachability test (ping)
+- Public IP reachability test
 - Public domain reachability test
-- DNS lookup test
-- Traceroute path visibility test
+- DNS lookup test (`nslookup`)
+- Traceroute visibility test
 
 ## Outcome
-- Public internet checks: successful
-- DNS checks: successful
-- Gateway ping/traceroute visibility: partially blocked by filtering policy
-- Service outage detected: **No**
+- Internet connectivity checks: successful
+- DNS resolution checks: successful
+- Gateway ping and traceroute visibility: restricted by filtering policy
+- Service outage detected: No
 
-## How to explain this to customers
-Use simple wording:
-- "Your internet service is working."
-- "Some technical test tools are limited on guest Wi-Fi for security."
-- "That is why ping/traceroute may look blocked even when browsing works."
+## Customer explanation guidance
+Use clear wording:
+- Internet service is working.
+- Some diagnostic responses are restricted on guest Wi-Fi for security.
+- This is why ping/traceroute may appear blocked even when browsing works.
 
-## If a customer reports a real problem
-Follow this order:
-1. Confirm whether issue affects one device or many.
-2. Check whether public websites load.
-3. Check DNS resolution.
-4. Record time, affected devices, and user impact.
-5. Escalate if normal service checks fail (not only diagnostic-tool checks).
-
-## Escalation criteria
-Escalate to the next support level when:
-- multiple devices cannot access the internet,
+## Escalation path
+Escalate to next support level when:
+- internet access fails across multiple devices,
 - DNS failures are confirmed,
-- service remains unavailable after basic recovery steps,
-- there is repeated instability impacting normal use.
+- service remains unavailable after basic checks,
+- instability repeatedly impacts normal use.
 
 ## Operational notes
-- Do not conclude "outage" from gateway ping failure alone on guest Wi-Fi.
-- Always combine diagnostic tests with real service checks.
-- Keep sensitive infrastructure details masked in customer-facing updates.
+- Do not treat gateway ping failure alone as proof of outage on guest Wi-Fi.
+- Combine diagnostic outputs with real service checks before concluding impact.
+- Keep customer-facing updates free of unnecessary internal addressing detail.
 
 ## Sign-off
 - Handover status: Completed
-- Next review: At next planned network health check
+- Next review: Next scheduled network health check

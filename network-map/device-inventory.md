@@ -1,19 +1,18 @@
 # Device Inventory
 
 ## Purpose
-Document all known network devices (wired and wireless) with clear ownership and addressing details.
+Record the devices and addressing context used during this lab evidence capture.
 
 ## Privacy note
-If this repository is shared publicly, redact sensitive values before publishing (for example: full MAC addresses, serial numbers, and exact private IP plans).
+Sensitive identifiers (full private IP, MAC address, exact site details) are intentionally masked.
 
-## Inventory
-| Device Name | Device Type | Connection (Wired/Wi-Fi) | IP Address | MAC Address | Owner/Location | Notes |
+## Recorded inventory
+| Device Name | Device Type | Connection | IP Address | MAC Address | Location | Notes |
 |---|---|---|---|---|---|---|
-| [e.g., VM Hub 5] | [Router] | [Wired] | [192.168.x.x] | [AA:BB:CC:DD:EE:FF] | [Living Room] | [Main gateway] |
-| [Add row] | [Add row] | [Add row] | [Add row] | [Add row] | [Add row] | [Add row] |
+| MacBook Air | Client test device | Wi-Fi | 10.104.70.xxx | Masked | Lab environment | Baseline and troubleshooting tests run from this device |
+| Guest Wi-Fi Gateway | Gateway/router | Wi-Fi upstream | 10.104.64.x | Not captured | Lab environment | Gateway diagnostics showed filtered ICMP behavior |
 
-## Checklist
-- [ ] Router/gateway documented
-- [ ] Access points documented (if applicable)
-- [ ] End-user devices documented
-- [ ] IoT/smart home devices documented
+## Inventory status
+- Router/gateway context documented
+- End-user test device documented
+- Additional endpoint inventory was not captured in this evidence set
