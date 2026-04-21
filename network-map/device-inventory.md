@@ -1,5 +1,12 @@
 # Device Inventory
 
+## Purpose
+Document all known network devices (wired and wireless) with clear ownership and addressing details.
+
+## Privacy note
+If this repository is shared publicly, redact sensitive values before publishing (for example: full MAC addresses, serial numbers, and exact private IP plans).
+
+## Inventory
 ## Instructions
 List every device connected to the network, both wired and wireless.
 
@@ -11,6 +18,9 @@ List every device connected to the network, both wired and wireless.
 
 ## Checklist
 - [ ] Router/gateway documented
+- [ ] Access points documented (if applicable)
+- [ ] End-user devices documented
+- [ ] IoT/smart home devices documented
 - [ ] Access points documented (if any)
 - [ ] End-user devices documented
 - [ ] Smart/home IoT devices documented
