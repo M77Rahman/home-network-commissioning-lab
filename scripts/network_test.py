@@ -3,6 +3,8 @@
 Basic network test helper script.
 
 Runs a small set of commands and prints output so results can be copied into
+This script is intentionally simple and beginner-friendly. It runs a small
+set of commands and prints output so you can copy real results into the
 `testing/` markdown files.
 """
 
@@ -15,6 +17,7 @@ from typing import List
 
 def run_command(command: List[str]) -> None:
     """Run a command and print output."""
+    """Run a command and print output safely."""
     print(f"\n$ {' '.join(command)}")
     try:
         result = subprocess.run(command, capture_output=True, text=True, check=False)
@@ -51,12 +54,18 @@ def main() -> None:
             ["traceroute", "google.com"],
         ]
     else:  # Linux and other Unix-like systems
+            ["nslookup", "bbc.co.uk"],
+            ["tracert", "bbc.co.uk"],
+        ]
+    else:
         commands = [
             ["ip", "a"],
             ["ip", "route"],
             ["ping", "-c", "4", "8.8.8.8"],
             ["nslookup", "google.com"],
             ["traceroute", "google.com"],
+            ["nslookup", "bbc.co.uk"],
+            ["traceroute", "bbc.co.uk"],
         ]
 
     for command in commands:
