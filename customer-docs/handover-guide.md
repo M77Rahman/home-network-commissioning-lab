@@ -44,6 +44,9 @@ Escalate to next support level when:
 - Keep customer-facing updates free of unnecessary internal addressing detail.
 
 ## Sign-off
+- Documentation status: Completed
+- Self-review status: Completed
+- Next review: Next scheduled network health check
 - Handover status: Completed
 - Next review: Next scheduled network health check
 Provide clear handover notes after testing the guest Wi-Fi diagnostic filtering scenario.

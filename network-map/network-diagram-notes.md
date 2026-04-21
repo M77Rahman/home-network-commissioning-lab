@@ -14,6 +14,13 @@ Capture the confirmed topology details used in this troubleshooting scenario.
 - DNS servers used: 185.228.168.85 and 185.228.169.85
 - Guest segment applies filtering that affects some diagnostic protocols
 
+## Commissioning Notes
+- The client was assigned private addressing on the guest segment.
+- DNS servers were assigned and used for successful name resolution.
+- A default route was present and outbound traffic succeeded.
+- Public internet reachability checks were successful.
+- Gateway ICMP and traceroute visibility were partially filtered.
+
 ## Diagram checklist status
 - Internet-to-gateway relationship identified
 - Client-to-gateway guest Wi-Fi path identified
