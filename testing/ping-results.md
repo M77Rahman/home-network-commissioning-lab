@@ -122,23 +122,3 @@ Overall Ping Test Conclusion
 The ping tests showed that external connectivity was working, because both 8.8.8.8 and google.com responded successfully.
 
 The failed default gateway ping did not prove a full network fault. The Communication prohibited by filter message suggests ICMP traffic to the gateway was blocked by network filtering.
-
-
-Then save it.
-
-## Why replace this one?
-
-Because the current file includes:
-
-- duplicate sections
-- broken markdown code blocks
-- instructions meant for other files
-- DNS and traceroute notes in the wrong file
-- “Next step” text that should not be in GitHub
-
-So for this file: **yes, replace the whole thing**.
-
-After saving, run:
-
-```bash
-cat testing/ping-results.md

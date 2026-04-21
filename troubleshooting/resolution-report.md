@@ -55,14 +55,9 @@ Internet and DNS services are operational on the guest Wi-Fi network. Some diagn
 3. [Placeholder action]
 
 ## Validation Tests
-- Test Performed: [Placeholder]
-- Expected Result: [Placeholder]
-- Actual Result: [Placeholder]
 
 ## Outcome
 - Service Restored: [Yes/No]
-- Date/Time Restored: [Placeholder]
-- Remaining Risks: [Placeholder]
 
 ## Follow-Up Tasks
 - [Placeholder task 1]

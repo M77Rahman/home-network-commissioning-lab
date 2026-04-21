@@ -50,9 +50,6 @@ During baseline diagnostics on the guest Wi-Fi segment, the default-gateway ping
 - [Placeholder symptom 3]
 
 ## Scope
-- Affected Devices: [Placeholder]
-- Affected Services: [Placeholder]
-- Start Time: [Placeholder]
 - Severity: [Low/Medium/High]
 
 ## Initial Checks Performed
